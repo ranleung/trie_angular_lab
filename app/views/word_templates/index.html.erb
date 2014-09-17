@@ -2,12 +2,17 @@
 
 
 <form ng-submit="words.addWord(newWord)">
-	<input type="text" placeholder="Enter a word" ng-model="newWord.word">
+	<input type="text" placeholder="Enter a word" ng-model="newWord.name">
+	<input type="text" placeholder="Enter a description" ng-model="newWord.description">
 	<button>Save</button>
 </form>
 
 
 
-{{words.greeting}}
+<div ng-repeat="word in words.wordArr">
+	<br \>Word Name: {{word.name}}
+	<br \>Description: {{word.description}}
+</div>
+
 
 

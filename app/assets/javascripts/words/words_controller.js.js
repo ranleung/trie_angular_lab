@@ -3,17 +3,25 @@ var WordCtrls, WordsCtrl;
 
 WordCtrls = angular.module("WordCtrls", []);
 
+this.wordArr = this.wordArr;
+
 WordsCtrl = (function() {
   function WordsCtrl(scope, Word) {
     this.scope = scope;
     this.Word = Word;
     this.greeting = "Hello World";
-    this.Word.all();
+    this.Word.all().success((function(_this) {
+      return function(data) {
+        return _this.wordArr = data;
+      };
+    })(this));
     return this;
-    ({
-      addWord: function(newWord) {}
-    });
   }
+
+  WordsCtrl.prototype.addWord = function(newWord) {
+    this.Word.create(newWord);
+    return this.wordArr.push(newWord);
+  };
 
   return WordsCtrl;
 

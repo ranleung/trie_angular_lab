@@ -10,6 +10,13 @@ WordFactories.factory("Word", [
         return $http.get("/words.json").success(function(data) {
           return console.log("The words are", data);
         });
+      },
+      create: function(newWord) {
+        console.log(newWord);
+        return $http.post("/words.json", {
+          name: newWord.name,
+          description: newWord.description
+        });
       }
     };
   }

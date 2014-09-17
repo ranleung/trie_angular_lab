@@ -5,7 +5,10 @@ WordFactories.factory("Word", ["$http", ($http)->
 		all: ()->
 			$http.get("/words.json").success (data)->
 				console.log("The words are", data)
-
+		,
+		create: (newWord)->
+			console.log(newWord)
+			$http.post("/words.json", {name: newWord.name, description: newWord.description})
 	}
 ])
 

@@ -1,9 +1,14 @@
 class WordsController < ApplicationController
 	before_action :render_layout_if_html
 
+	respond_to :json, :html
+
 	def index
-		@words = Word.all
-		render json: @words
+		respond_with (@words = Word.all)
+	end
+
+	def create
+		respond_with Word.create(word_params)
 	end
 
 	private
@@ -11,6 +16,10 @@ class WordsController < ApplicationController
 			if request.format.symbol == :html
 				render "layouts/application"
 			end
+		end
+
+		def word_params
+			params.require(:word).permit(:name, :description)
 		end
 
 end
