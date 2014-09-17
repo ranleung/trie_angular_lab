@@ -16,6 +16,6 @@ When a user saves a word, your trie should learn it.
 
 ## Bonus
 
-Finish implementing all of the Trie methods and make sure the tests pass
-Create a search field and when a user types in a word, it should suggest words (use your autocomplete function)
-Add an additional route that allows the user to click on a word and see its title and description (you will need to research $routeParams to complete this)
+1) Finish implementing all of the Trie methods and make sure the tests pass
+2) Create a search field and when a user types in a word, it should suggest words (use your autocomplete function)
+3) Add an additional route that allows the user to click on a word and see its title and description (you will need to research $routeParams to complete this)
